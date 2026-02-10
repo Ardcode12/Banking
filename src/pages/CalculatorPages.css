@@ -19,8 +19,8 @@
     padding: 40px;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--gray-100);
-    position: sticky;
-    top: 100px;
+    position: relative;
+    z-index: 1;
 }
 
 .calculator-form-card h3 {
@@ -309,11 +309,12 @@
 }
 
 .health-awareness-note {
-    margin-top: 30px;
     padding: 24px;
-    background: linear-gradient(135deg, rgba(255, 107, 0, 0.05), rgba(255, 107, 0, 0.1));
+    background: linear-gradient(135deg, rgba(232, 93, 0, 0.05), rgba(232, 93, 0, 0.1));
     border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 107, 0, 0.15);
+    border: 1px solid rgba(232, 93, 0, 0.15);
+    position: relative;
+    z-index: 2;
 }
 
 .health-awareness-note h4 {
