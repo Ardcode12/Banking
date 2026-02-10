@@ -1,0 +1,139 @@
+.visualization-page {
+    padding-top: 72px;
+}
+
+.viz-section {
+    padding: 80px 0;
+}
+
+.viz-charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.viz-chart-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-100);
+    transition: all var(--transition-base);
+}
+
+.viz-chart-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+}
+
+.viz-chart-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.viz-chart-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.viz-chart-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.viz-chart-header h3 {
+    font-size: 1.15rem;
+}
+
+.viz-chart-header p {
+    font-size: 0.85rem;
+    color: var(--gray-400);
+}
+
+.viz-chart-body {
+    height: 300px;
+    position: relative;
+}
+
+/* Tips Grid */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.tip-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-100);
+    text-align: center;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-gradient);
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+}
+
+.tip-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.tip-card:hover::before {
+    transform: scaleX(1);
+}
+
+.tip-emoji {
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.tip-card h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.tip-card p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .viz-charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
