@@ -5,7 +5,7 @@
     background: linear-gradient(135deg, var(--off-white) 0%, var(--cream) 50%, var(--white) 100%);
     position: relative;
     overflow: hidden;
-    padding-top: 72px;
+    padding-top: 120px;
 }
 
 .hero::before {
@@ -33,12 +33,14 @@
 }
 
 .hero-container {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 60px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
     position: relative;
     z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero-badge {
@@ -73,7 +75,7 @@
 .hero-description {
     font-size: 1.12rem;
     color: var(--gray-500);
-    margin-bottom: 12px;
+    margin: 0 auto 12px;
     max-width: 520px;
 }
 
@@ -81,7 +83,8 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin: 24px 0 32px;
+    margin-top: 32px;
+    align-items: center;
 }
 
 .hero-feature {
@@ -110,6 +113,8 @@
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    margin-top: 12px;
+    justify-content: center;
 }
 
 .hero-visual {
@@ -223,6 +228,108 @@
     color: #2563eb;
 }
 
+/* =========== Service Detail Sections =========== */
+.service-detail {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.service-detail.alt-bg {
+    background: var(--off-white);
+}
+
+.service-detail-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.service-detail-grid.reverse {
+    grid-template-columns: 1fr auto;
+}
+
+.service-detail-grid.reverse .service-detail-icon-box {
+    order: 2;
+}
+
+.service-detail-grid.reverse .service-detail-content {
+    order: 1;
+}
+
+.service-detail-icon-box {
+    width: 160px;
+    height: 160px;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--white);
+    box-shadow: var(--shadow-orange);
+    margin: 0 auto;
+}
+
+.service-detail-icon-box.health {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    box-shadow: 0 8px 30px rgba(239, 68, 68, 0.3);
+}
+
+.service-detail-icon-box.education {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+}
+
+.service-detail-icon-box.medical {
+    background: linear-gradient(135deg, #10b981, #047857);
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.3);
+}
+
+.service-detail-content {
+    text-align: left;
+}
+
+.service-detail-content .section-badge {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.service-detail-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    color: var(--dark);
+}
+
+.service-detail-content>p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--gray-500);
+    margin-bottom: 24px;
+}
+
+.service-detail-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.service-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--gray-600);
+}
+
+.service-point svg {
+    color: #16a34a;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
 /* =========== Highlights Section =========== */
 .highlights {
     padding: 100px 0;
@@ -233,6 +340,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+}
+
+.highlights-grid.four-col {
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .highlight-card {
@@ -297,6 +408,21 @@
 .highlight-card p {
     font-size: 0.95rem;
     line-height: 1.7;
+}
+
+.highlight-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.highlight-link:hover {
+    color: var(--primary-dark);
+    transform: translateX(4px);
 }
 
 /* =========== Financial Planning Guide Section =========== */
@@ -615,34 +741,12 @@
 
 /* =========== Responsive =========== */
 @media (max-width: 992px) {
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-
     .hero-description {
         margin: 0 auto 12px;
     }
 
-    .hero-features {
-        align-items: center;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-visual-card {
-        max-width: 380px;
-        margin: 0 auto;
-    }
-
-    .hero-floating-badge {
-        display: none;
-    }
-
-    .highlights-grid {
+    .highlights-grid,
+    .highlights-grid.four-col {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -654,6 +758,23 @@
     .contact-grid {
         grid-template-columns: 1fr;
     }
+
+    .service-detail-grid,
+    .service-detail-grid.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        text-align: center;
+    }
+
+    .service-detail-icon-box {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+    }
+
+    .service-detail-points {
+        text-align: left;
+    }
 }
 
 @media (max-width: 768px) {
@@ -662,7 +783,8 @@
         padding: 120px 0 60px;
     }
 
-    .highlights-grid {
+    .highlights-grid,
+    .highlights-grid.four-col {
         grid-template-columns: 1fr;
     }
 
@@ -708,6 +830,24 @@
 
     .hero-stat-value {
         font-size: 1.3rem;
+    }
+
+    .service-detail {
+        padding: 50px 0;
+    }
+
+    .service-detail-points {
+        grid-template-columns: 1fr;
+    }
+
+    .service-detail-icon-box {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+
+    .service-detail-content h2 {
+        font-size: 1.4rem;
     }
 }
 

@@ -11,6 +11,7 @@ import HealthInsurancePage from './pages/HealthInsurancePage';
 import EducationCalculatorPage from './pages/EducationCalculatorPage';
 import VisualizationPage from './pages/VisualizationPage';
 import RecommendationsPage from './pages/RecommendationsPage';
+import MedicalCalculatorPage from './pages/MedicalCalculatorPage';
 import LegalPage from './pages/LegalPage';
 
 import './App.css';
@@ -46,6 +47,7 @@ function App() {
             <Route path="/life-insurance" element={<LifeInsurancePage />} />
             <Route path="/health-insurance" element={<HealthInsurancePage />} />
             <Route path="/education-calculator" element={<EducationCalculatorPage />} />
+            <Route path="/medical-calculator" element={<MedicalCalculatorPage />} />
             <Route path="/insights" element={<VisualizationPage />} />
             <Route path="/recommendations" element={<RecommendationsPage />} />
             <Route path="/legal" element={<LegalPage />} />

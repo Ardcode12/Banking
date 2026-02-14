@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-    FiShield, FiTrendingUp, FiTarget, FiHeart,
+    FiShield, FiTrendingUp, FiHeart,
     FiBookOpen, FiMail, FiPhone, FiCheckCircle,
     FiUsers, FiAward, FiEye, FiSend
 } from 'react-icons/fi';
@@ -64,133 +64,7 @@ const HomePage = () => {
                         </div>
                     </div>
 
-                    <div className="hero-visual" data-aos="fade-left" data-aos-delay="400">
-                        <div className="hero-visual-card">
-                            <div className="hero-stat-grid">
-                                <div className="hero-stat">
-                                    <div className="hero-stat-icon">🛡️</div>
-                                    <div className="hero-stat-value">₹1Cr+</div>
-                                    <div className="hero-stat-label">Avg. Coverage Gap</div>
-                                </div>
-                                <div className="hero-stat">
-                                    <div className="hero-stat-icon">📈</div>
-                                    <div className="hero-stat-value">7%</div>
-                                    <div className="hero-stat-label">Avg. Inflation Rate</div>
-                                </div>
-                                <div className="hero-stat">
-                                    <div className="hero-stat-icon">🎓</div>
-                                    <div className="hero-stat-value">2.4x</div>
-                                    <div className="hero-stat-label">Education Cost Rise</div>
-                                </div>
-                                <div className="hero-stat">
-                                    <div className="hero-stat-icon">👨‍👩‍👧‍👦</div>
-                                    <div className="hero-stat-value">76%</div>
-                                    <div className="hero-stat-label">Families Under-insured</div>
-                                </div>
-                            </div>
 
-                            <div className="hero-floating-badge top-right">
-                                <span className="hero-floating-badge-icon green"><FiCheckCircle /></span>
-                                <span>Free Calculator</span>
-                            </div>
-                            <div className="hero-floating-badge bottom-left">
-                                <span className="hero-floating-badge-icon blue"><FiTrendingUp /></span>
-                                <span>Plan Ahead</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== HIGHLIGHTS SECTION ========== */}
-            <section className="highlights">
-                <div className="container">
-                    <div className="section-header" data-aos="fade-up">
-                        <span className="section-badge">Why It Matters</span>
-                        <h2 className="section-title">Key <span>Highlights</span></h2>
-                        <p className="section-subtitle">
-                            Understanding these critical financial factors can help you make better
-                            decisions for your family's future.
-                        </p>
-                    </div>
-
-                    <div className="highlights-grid">
-                        <div className="highlight-card" data-aos="fade-up" data-aos-delay="100">
-                            <div className="highlight-icon"><FiTrendingUp /></div>
-                            <h3>Inflation Impact</h3>
-                            <p>
-                                Inflation erodes your money's purchasing power over time. A course costing
-                                ₹10 lakhs today could cost ₹24+ lakhs in 13 years at 7% inflation.
-                            </p>
-                        </div>
-                        <div className="highlight-card" data-aos="fade-up" data-aos-delay="200">
-                            <div className="highlight-icon"><FiShield /></div>
-                            <h3>Adequate Insurance</h3>
-                            <p>
-                                Most Indian families are significantly under-insured. Your life insurance
-                                should ideally cover 10-15x your annual income to protect your family.
-                            </p>
-                        </div>
-                        <div className="highlight-card" data-aos="fade-up" data-aos-delay="300">
-                            <div className="highlight-icon"><FiTarget /></div>
-                            <h3>Personalized Calculators</h3>
-                            <p>
-                                Use our free calculators to understand your exact coverage gap, future
-                                education costs, and plan your finances with clarity.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== FINANCIAL PLANNING GUIDE SECTION ========== */}
-            <section className="financial-planning-guide">
-                <div className="container">
-                    <div className="section-header" data-aos="fade-up">
-                        <span className="section-badge">Practical Guide</span>
-                        <h2 className="section-title">Smart Financial <span>Planning Example</span></h2>
-                        <p className="section-subtitle">
-                            A comprehensive financial plan for a young family with monthly income of ₹60,000
-                        </p>
-                    </div>
-
-                    <div className="financial-guide-content" data-aos="fade-up" data-aos-delay="200">
-                        <img
-                            src="/images/smart-financial-plan.jpg"
-                            alt="Smart Financial Plan for Young Family - Monthly Income ₹60,000"
-                            className="financial-plan-image"
-                        />
-                        <div className="financial-guide-highlights">
-                            <div className="financial-highlight-item">
-                                <div className="financial-highlight-icon">🛡️</div>
-                                <div>
-                                    <h4>Protection First</h4>
-                                    <p>Term insurance (₹1 Cr) + Health insurance (5-10 lakhs)</p>
-                                </div>
-                            </div>
-                            <div className="financial-highlight-item">
-                                <div className="financial-highlight-icon">🎓</div>
-                                <div>
-                                    <h4>Child's Future</h4>
-                                    <p>₹3,000/month SIP for higher education in 15 years</p>
-                                </div>
-                            </div>
-                            <div className="financial-highlight-item">
-                                <div className="financial-highlight-icon">💰</div>
-                                <div>
-                                    <h4>Emergency Fund</h4>
-                                    <p>₹2 lakhs in liquid funds for job loss or medical crisis</p>
-                                </div>
-                            </div>
-                            <div className="financial-highlight-item">
-                                <div className="financial-highlight-icon">🏡</div>
-                                <div>
-                                    <h4>Short-Term Goals</h4>
-                                    <p>Save ₹4,000-5,000/month for home/vehicle downpayment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
@@ -274,6 +148,120 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
+
+            {/* ========== WHAT IS LIFE INSURANCE ========== */}
+            <section className="service-detail" data-aos="fade-up">
+                <div className="container">
+                    <div className="service-detail-grid">
+                        <div className="service-detail-icon-box">
+                            <FiShield />
+                        </div>
+                        <div className="service-detail-content">
+                            <span className="section-badge">Understanding Insurance</span>
+                            <h2>What is <span className="text-primary">Life Insurance</span>?</h2>
+                            <p>
+                                Life insurance is a contract between you and an insurance company where you pay regular
+                                premiums, and in return, the insurer pays a lump sum (sum assured) to your family in case of
+                                your untimely demise. It acts as a financial safety net, ensuring your loved ones can maintain
+                                their standard of living, pay off debts, and meet future goals even in your absence.
+                            </p>
+                            <div className="service-detail-points">
+                                <div className="service-point"><FiCheckCircle /> <span>Replaces your income to support your family</span></div>
+                                <div className="service-point"><FiCheckCircle /> <span>Covers home loans, debts & liabilities</span></div>
+                                <div className="service-point"><FiCheckCircle /> <span>Secures children's education & marriage expenses</span></div>
+                                <div className="service-point"><FiCheckCircle /> <span>Tax benefits under Section 80C (up to ₹1.5 lakh)</span></div>
+                            </div>
+                            <Link to="/life-insurance" className="btn btn-primary">
+                                <FiShield /> Calculate Your Coverage
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ========== WHAT IS HEALTH INSURANCE ========== */}
+            <section className="service-detail alt-bg" data-aos="fade-up">
+                <div className="container">
+                    <div className="service-detail-grid reverse">
+                        <div className="service-detail-icon-box health">
+                            <FiHeart />
+                        </div>
+                        <div className="service-detail-content">
+                            <span className="section-badge">Healthcare Protection</span>
+                            <h2>What is <span className="text-primary">Health Insurance</span>?</h2>
+                            <p>
+                                Health insurance covers your medical expenses during hospitalization, surgeries, and
+                                treatments. With medical inflation in India running at 14% annually — nearly double the
+                                general inflation rate — a single hospitalization costing ₹3 lakhs today could cost over
+                                ₹11 lakhs in 10 years. Health insurance ensures you get the best treatment without
+                                draining your life savings.
+                            </p>
+                            <div className="service-detail-points">
+                                <div className="service-point"><FiCheckCircle /> <span>Covers hospitalization, surgery & treatment costs</span></div>
+                                <div className="service-point"><FiCheckCircle /> <span>Cashless treatment at 5,000+ network hospitals</span></div>
+                                <div className="service-point"><FiCheckCircle /> <span>Pre & post hospitalization expenses covered</span></div>
+                                <div className="service-point"><FiCheckCircle /> <span>Tax savings under Section 80D (up to ₹75,000)</span></div>
+                            </div>
+                            <Link to="/health-insurance" className="btn btn-primary">
+                                <FiHeart /> Learn About Coverage
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            {/* ========== FINANCIAL PLANNING GUIDE SECTION ========== */}
+            <section className="financial-planning-guide">
+                <div className="container">
+                    <div className="section-header" data-aos="fade-up">
+                        <span className="section-badge">Practical Guide</span>
+                        <h2 className="section-title">Smart Financial <span>Planning Example</span></h2>
+                        <p className="section-subtitle">
+                            A comprehensive financial plan for a young family with monthly income of ₹60,000
+                        </p>
+                    </div>
+
+                    <div className="financial-guide-content" data-aos="fade-up" data-aos-delay="200">
+                        <img
+                            src="/images/smart-financial-plan.jpg"
+                            alt="Smart Financial Plan for Young Family - Monthly Income ₹60,000"
+                            className="financial-plan-image"
+                        />
+                        <div className="financial-guide-highlights">
+                            <div className="financial-highlight-item">
+                                <div className="financial-highlight-icon">🛡️</div>
+                                <div>
+                                    <h4>Protection First</h4>
+                                    <p>Term insurance (₹1 Cr) + Health insurance (5-10 lakhs)</p>
+                                </div>
+                            </div>
+                            <div className="financial-highlight-item">
+                                <div className="financial-highlight-icon">�</div>
+                                <div>
+                                    <h4>Child's Future</h4>
+                                    <p>₹3,000/month SIP for higher education in 15 years</p>
+                                </div>
+                            </div>
+                            <div className="financial-highlight-item">
+                                <div className="financial-highlight-icon">💰</div>
+                                <div>
+                                    <h4>Emergency Fund</h4>
+                                    <p>₹2 lakhs in liquid funds for job loss or medical crisis</p>
+                                </div>
+                            </div>
+                            <div className="financial-highlight-item">
+                                <div className="financial-highlight-icon">🏡</div>
+                                <div>
+                                    <h4>Short-Term Goals</h4>
+                                    <p>Save ₹4,000-5,000/month for home/vehicle downpayment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
             {/* ========== CONTACT SECTION ========== */}
             <section className="contact-section" id="contact">

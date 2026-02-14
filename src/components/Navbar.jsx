@@ -25,6 +25,7 @@ const Navbar = () => {
         { path: '/life-insurance', label: 'Life Insurance' },
         { path: '/health-insurance', label: 'Health Insurance' },
         { path: '/education-calculator', label: 'Education Planner' },
+        { path: '/medical-calculator', label: 'Medical Calculator' },
         { path: '/insights', label: 'Insights' },
         { path: '/recommendations', label: 'Recommendations' },
     ];
