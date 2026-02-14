@@ -137,3 +137,44 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 480px) {
+    .viz-section {
+        padding: 40px 0;
+    }
+
+    .viz-chart-card {
+        padding: 20px 16px;
+    }
+
+    .viz-chart-header h3 {
+        font-size: 1rem;
+    }
+
+    .viz-chart-body {
+        height: 230px;
+    }
+
+    .viz-chart-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .tip-card {
+        padding: 20px 16px;
+    }
+
+    .tip-emoji {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+
+    .tip-card h4 {
+        font-size: 0.9rem;
+    }
+
+    .tip-card p {
+        font-size: 0.82rem;
+    }
+}

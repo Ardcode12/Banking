@@ -40,6 +40,38 @@ const collegeData = [
     { name: 'IIM', place: 'Hyderabad', amount: 900000 },
 ];
 
+// Helper: interpolate future cost from courseData based on years remaining
+const getFutureCostFromCourseData = (course, years) => {
+    if (!course) return null;
+    const dataPoints = [
+        { year: 0, cost: course.currentCost },
+        { year: 5, cost: course.fiveYear },
+        { year: 10, cost: course.tenYear },
+        { year: 15, cost: course.fifteenYear },
+    ];
+
+    if (years <= 0) return course.currentCost;
+    if (years >= 15) {
+        // Extrapolate beyond 15 years using the 10->15 year growth rate
+        const growthRate = Math.pow(course.fifteenYear / course.tenYear, 1 / 5);
+        return Math.round(course.fifteenYear * Math.pow(growthRate, years - 15));
+    }
+
+    // Find the two surrounding data points and interpolate
+    for (let i = 0; i < dataPoints.length - 1; i++) {
+        if (years >= dataPoints[i].year && years <= dataPoints[i + 1].year) {
+            const fraction = (years - dataPoints[i].year) / (dataPoints[i + 1].year - dataPoints[i].year);
+            // Use exponential interpolation for more realistic inflation curves
+            const startCost = dataPoints[i].cost;
+            const endCost = dataPoints[i + 1].cost;
+            const yearSpan = dataPoints[i + 1].year - dataPoints[i].year;
+            const growthRate = Math.pow(endCost / startCost, 1 / yearSpan);
+            return Math.round(startCost * Math.pow(growthRate, years - dataPoints[i].year));
+        }
+    }
+    return course.currentCost;
+};
+
 const EducationCalculatorPage = () => {
     const [childAge, setChildAge] = useState('');
     const [collegeAge, setCollegeAge] = useState('');
@@ -56,8 +88,6 @@ const EducationCalculatorPage = () => {
             const course = courseData.find(c => c.name === courseName);
             if (course) {
                 setCurrentCost(course.currentCost.toString());
-                // Set inflation to ~10% based on the provided data trend (4L -> 17L in 15 yrs is ~10%)
-                // Image header mentions 14.7%, but table data aligns closer to 10-11%
                 setInflationRate(10);
             }
         }
@@ -71,19 +101,34 @@ const EducationCalculatorPage = () => {
         const rate = inflationRate / 100;
 
         const yearsRemaining = Math.max(colAge - cAge, 0);
-        const futureCost = cost * Math.pow(1 + rate, yearsRemaining);
+
+        // Determine the future cost
+        let futureCost;
+        const selectedCourseObj = courseData.find(c => c.name === selectedCourse);
+
+        if (selectedCourseObj) {
+            // Use pre-computed courseData projections (interpolated) for selected courses
+            futureCost = getFutureCostFromCourseData(selectedCourseObj, yearsRemaining);
+        } else {
+            // For custom input, use the inflation rate calculation
+            futureCost = cost * Math.pow(1 + rate, yearsRemaining);
+        }
 
         // Year-by-year breakdown for chart
         const yearlyData = [];
         for (let i = 0; i <= yearsRemaining; i++) {
-            yearlyData.push({
-                year: i,
-                cost: cost * Math.pow(1 + rate, i),
-            });
+            if (selectedCourseObj) {
+                yearlyData.push({
+                    year: i,
+                    cost: getFutureCostFromCourseData(selectedCourseObj, i),
+                });
+            } else {
+                yearlyData.push({
+                    year: i,
+                    cost: cost * Math.pow(1 + rate, i),
+                });
+            }
         }
-
-        // Find selected course reference data for comparison
-        const selectedCourseData = courseData.find(c => c.name === selectedCourse);
 
         setResults({
             yearsRemaining,
@@ -94,7 +139,7 @@ const EducationCalculatorPage = () => {
             costIncrease: futureCost - cost,
             multiplier: (futureCost / cost).toFixed(1),
             courseName: selectedCourse || 'Custom',
-            courseRef: selectedCourseData || null,
+            courseRef: selectedCourseObj || null,
         });
     };
 
@@ -376,36 +421,84 @@ const EducationCalculatorPage = () => {
                         </p>
                     </div>
 
-                    <div className="education-data-content" data-aos="fade-up" data-aos-delay="200">
-                        <img
-                            src="/images/education-cost-inflation.jpg"
-                            alt="Education Cost Inflation Data - Course wise breakdown with inflation rates"
-                            className="education-data-image"
-                        />
-                        <div className="education-data-insights">
-                            <div className="education-insight-card">
-                                <div className="education-insight-icon">📊</div>
-                                <h4>Average Inflation Rates</h4>
-                                <ul>
-                                    <li><strong>Education:</strong> 14.7% per year</li>
-                                    <li><strong>Food:</strong> 11.8% per year</li>
-                                    <li><strong>Medical:</strong> 14.1% per year</li>
-                                </ul>
+                    <div className="education-tables-grid" data-aos="fade-up" data-aos-delay="200">
+                        {/* Inflation Rates + Top Colleges */}
+                        <div className="education-tables-sidebar">
+                            <div className="education-table-card">
+                                <h4 className="education-table-title">📊 Average Inflation Rates</h4>
+                                <table className="education-styled-table compact-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Rate (p.a.)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Education</td><td className="highlight-cell">14.7%</td></tr>
+                                        <tr><td>Medical</td><td className="highlight-cell">14.1%</td></tr>
+                                        <tr><td>Food</td><td>11.8%</td></tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div className="education-insight-card">
-                                <div className="education-insight-icon">🎓</div>
-                                <h4>Course Cost Examples</h4>
-                                <p>Engineering: ₹4L → ₹17L in 15 years</p>
-                                <p>MBA: ₹3L → ₹12L in 15 years</p>
-                                <p>Medical: ₹25L → ₹104L in 15 years</p>
+
+                            <div className="education-table-card">
+                                <h4 className="education-table-title">🏛️ Top College Costs (Current)</h4>
+                                <table className="education-styled-table compact-table">
+                                    <thead>
+                                        <tr>
+                                            <th>College</th>
+                                            <th>Place</th>
+                                            <th>Fees</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {collegeData.map((college, index) => (
+                                            <tr key={index}>
+                                                <td className="college-name-cell">{college.name}</td>
+                                                <td>{college.place}</td>
+                                                <td className="amount-cell">{formatCurrency(college.amount)}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
                             </div>
-                            <div className="education-insight-card">
-                                <div className="education-insight-icon">💡</div>
-                                <h4>Key Takeaway</h4>
+
+                            <div className="education-table-card key-takeaway-card">
+                                <h4 className="education-table-title">💡 Key Takeaway</h4>
                                 <p>
-                                    Education inflation is higher than general inflation. Starting early with
-                                    SIPs and dedicated education funds can help you stay ahead of rising costs.
+                                    Education inflation (14.7%) is <strong>significantly higher</strong> than general inflation.
+                                    Starting early with SIPs and dedicated education funds can help you stay ahead of rising costs.
                                 </p>
+                            </div>
+                        </div>
+
+                        {/* Course Cost Projections Table */}
+                        <div className="education-table-card course-table-card">
+                            <h4 className="education-table-title">🎓 Course-wise Future Cost Projections</h4>
+                            <p className="table-subtitle">How today's education costs will grow over time due to inflation</p>
+                            <div className="table-scroll-wrapper">
+                                <table className="education-styled-table course-projection-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Course</th>
+                                            <th>Today (₹)</th>
+                                            <th>5 Years Later</th>
+                                            <th>10 Years Later</th>
+                                            <th>15 Years Later</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {courseData.map((course, index) => (
+                                            <tr key={index} className={index % 2 === 0 ? 'row-even' : ''}>
+                                                <td className="course-name-cell" data-label="Course">{course.name}</td>
+                                                <td data-label="Today (₹)">{formatCurrency(course.currentCost)}</td>
+                                                <td data-label="5 Years Later">{formatCurrency(course.fiveYear)}</td>
+                                                <td data-label="10 Years Later">{formatCurrency(course.tenYear)}</td>
+                                                <td className="future-cost-cell" data-label="15 Years Later">{formatCurrency(course.fifteenYear)}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

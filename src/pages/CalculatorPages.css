@@ -75,6 +75,7 @@
 
 .range-input-group input[type="range"] {
     -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     height: 8px;
     border-radius: 10px;
@@ -347,82 +348,159 @@
     background: var(--white);
 }
 
-.education-data-content {
+/* Education Tables Grid */
+.education-tables-grid {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 28px;
     align-items: start;
 }
 
-.education-data-image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    border: 1px solid var(--gray-100);
-    transition: all var(--transition-base);
-}
-
-.education-data-image:hover {
-    transform: scale(1.02);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-.education-data-insights {
+.education-tables-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
 }
 
-.education-insight-card {
-    padding: 24px;
-    background: var(--off-white);
+.education-table-card {
+    background: var(--white);
     border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-md);
     border: 1px solid var(--gray-100);
     transition: all var(--transition-base);
 }
 
-.education-insight-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
-    background: var(--white);
-    border-color: rgba(255, 107, 0, 0.2);
+.education-table-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
 }
 
-.education-insight-icon {
-    font-size: 2rem;
-    margin-bottom: 12px;
+.course-table-card {
+    height: fit-content;
 }
 
-.education-insight-card h4 {
-    font-size: 1.05rem;
-    margin-bottom: 12px;
+.education-table-title {
+    font-size: 1.1rem;
+    font-weight: 700;
     color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--gray-100);
 }
 
-.education-insight-card p {
+.table-subtitle {
+    font-size: 0.88rem;
+    color: var(--gray-400);
+    margin-top: -8px;
+    margin-bottom: 20px;
+}
+
+.table-scroll-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+}
+
+/* Styled Tables */
+.education-styled-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+}
+
+.education-styled-table thead th {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: var(--white);
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.education-styled-table thead th:first-child {
+    border-radius: var(--radius-sm) 0 0 0;
+}
+
+.education-styled-table thead th:last-child {
+    border-radius: 0 var(--radius-sm) 0 0;
+}
+
+.education-styled-table tbody td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-600);
+    white-space: nowrap;
+}
+
+.education-styled-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.education-styled-table tbody tr:hover {
+    background: rgba(240, 123, 32, 0.04);
+}
+
+.education-styled-table tbody tr.row-even {
+    background: var(--off-white);
+}
+
+.education-styled-table tbody tr.row-even:hover {
+    background: rgba(240, 123, 32, 0.06);
+}
+
+/* Special Table Cells */
+.highlight-cell {
+    color: var(--primary) !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.college-name-cell,
+.course-name-cell {
+    font-weight: 600;
+    color: var(--dark) !important;
+}
+
+.amount-cell {
+    font-weight: 600;
+    color: var(--primary) !important;
+}
+
+.future-cost-cell {
+    font-weight: 700;
+    color: #c62828 !important;
+    background: rgba(198, 40, 40, 0.05);
+}
+
+.education-styled-table tbody tr:hover .future-cost-cell {
+    background: rgba(198, 40, 40, 0.08);
+}
+
+/* Compact table styling */
+.compact-table tbody td {
+    padding: 9px 14px;
+}
+
+/* Key Takeaway Card */
+.key-takeaway-card {
+    background: linear-gradient(135deg, rgba(232, 93, 0, 0.05), rgba(232, 93, 0, 0.1));
+    border-color: rgba(232, 93, 0, 0.2);
+}
+
+.key-takeaway-card .education-table-title {
+    border-bottom-color: rgba(232, 93, 0, 0.2);
+}
+
+.key-takeaway-card p {
     font-size: 0.9rem;
     color: var(--gray-500);
-    margin: 8px 0;
-    line-height: 1.6;
-}
-
-.education-insight-card ul {
-    list-style: none;
-    padding: 0;
+    line-height: 1.7;
     margin: 0;
-}
-
-.education-insight-card ul li {
-    font-size: 0.9rem;
-    color: var(--gray-600);
-    padding: 6px 0;
-    border-bottom: 1px solid var(--gray-100);
-}
-
-.education-insight-card ul li:last-child {
-    border-bottom: none;
 }
 
 /* Responsive */
@@ -444,9 +522,9 @@
         grid-template-columns: 1fr;
     }
 
-    .education-data-content {
+    .education-tables-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
     }
 }
 
@@ -459,7 +537,193 @@
         font-size: 1.3rem;
     }
 
-    .education-data-image {
-        max-width: 100%;
+    .education-table-card {
+        padding: 20px;
+    }
+
+    .education-styled-table {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator-section {
+        padding: 40px 0;
+    }
+
+    .calculator-form-card {
+        padding: 24px 16px;
+    }
+
+    .calculator-form-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .result-card-item {
+        padding: 20px 16px;
+        gap: 14px;
+    }
+
+    .result-item-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 1.2rem;
+    }
+
+    .result-item-value {
+        font-size: 1.2rem;
+    }
+
+    .result-item-label {
+        font-size: 0.8rem;
+    }
+
+    .result-item-sublabel {
+        font-size: 0.75rem;
+    }
+
+    .chart-container {
+        padding: 20px 16px;
+    }
+
+    .chart-container h3 {
+        font-size: 1rem;
+    }
+
+    .result-explanation {
+        padding: 18px 16px;
+    }
+
+    .info-section {
+        padding: 40px 0;
+    }
+
+    .info-card {
+        padding: 24px 16px;
+    }
+
+    .info-card-number {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+    }
+
+    .education-cost-data {
+        padding: 40px 0;
+    }
+
+    .education-tables-grid {
+        margin-top: 30px;
+        gap: 20px;
+    }
+
+    .education-table-card {
+        padding: 16px;
+    }
+
+    .education-table-title {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+    }
+
+    .education-styled-table {
+        font-size: 0.78rem;
+    }
+
+    .education-styled-table thead th {
+        padding: 10px 10px;
+        font-size: 0.72rem;
+    }
+
+    .education-styled-table tbody td {
+        padding: 8px 10px;
+    }
+
+    .compact-table tbody td {
+        padding: 7px 10px;
+    }
+
+    .table-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .range-input-group input[type="range"]::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Card-based table layout for small screens */
+@media (max-width: 600px) {
+    .course-projection-table thead {
+        display: none;
+    }
+
+    .course-projection-table tbody tr {
+        display: block;
+        background: var(--white);
+        border: 1px solid var(--gray-100);
+        border-radius: var(--radius-md);
+        margin-bottom: 12px;
+        padding: 16px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .course-projection-table tbody tr.row-even {
+        background: var(--white);
+    }
+
+    .course-projection-table tbody tr:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+    }
+
+    .course-projection-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--gray-100);
+        white-space: normal;
+    }
+
+    .course-projection-table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    .course-projection-table tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        font-size: 0.78rem;
+        color: var(--gray-400);
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        margin-right: 12px;
+    }
+
+    .course-projection-table tbody td.course-name-cell {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--dark) !important;
+        padding-bottom: 10px;
+        margin-bottom: 4px;
+        border-bottom: 2px solid var(--primary);
+    }
+
+    .course-projection-table tbody td.course-name-cell::before {
+        display: none;
+    }
+
+    .course-projection-table tbody td.future-cost-cell {
+        background: rgba(198, 40, 40, 0.05);
+        border-radius: var(--radius-sm);
+        padding: 8px;
+        margin-top: 4px;
+    }
+
+    .table-scroll-wrapper {
+        overflow-x: visible;
     }
 }
