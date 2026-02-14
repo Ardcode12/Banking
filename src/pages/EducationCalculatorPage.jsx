@@ -60,7 +60,6 @@ const getFutureCostFromCourseData = (course, years) => {
     // Find the two surrounding data points and interpolate
     for (let i = 0; i < dataPoints.length - 1; i++) {
         if (years >= dataPoints[i].year && years <= dataPoints[i + 1].year) {
-            const fraction = (years - dataPoints[i].year) / (dataPoints[i + 1].year - dataPoints[i].year);
             // Use exponential interpolation for more realistic inflation curves
             const startCost = dataPoints[i].cost;
             const endCost = dataPoints[i + 1].cost;
