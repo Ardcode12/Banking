@@ -388,49 +388,53 @@ const MedicalCalculatorPage = () => {
                             {/* Medical Inflation Rates */}
                             <div className="education-table-card">
                                 <h4 className="education-table-title">📈 Medical Inflation Rates</h4>
-                                <table className="education-styled-table compact-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Category</th>
-                                            <th>Annual Rate</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {Object.entries(medicalInflationData).map(([key, rate], index) => (
-                                            <tr key={key} className={index % 2 === 0 ? 'row-even' : ''}>
-                                                <td className="course-name-cell" style={{ textTransform: 'capitalize' }}>
-                                                    {key === 'general' ? 'General Inflation' : key.charAt(0).toUpperCase() + key.slice(1)}
-                                                </td>
-                                                <td className={rate >= 14 ? 'highlight-cell' : 'amount-cell'}>
-                                                    {rate}%
-                                                </td>
+                                <div className="table-scroll-wrapper">
+                                    <table className="education-styled-table compact-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Annual Rate</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {Object.entries(medicalInflationData).map(([key, rate], index) => (
+                                                <tr key={key} className={index % 2 === 0 ? 'row-even' : ''}>
+                                                    <td className="course-name-cell" style={{ textTransform: 'capitalize' }}>
+                                                        {key === 'general' ? 'General Inflation' : key.charAt(0).toUpperCase() + key.slice(1)}
+                                                    </td>
+                                                    <td className={rate >= 14 ? 'highlight-cell' : 'amount-cell'}>
+                                                        {rate}%
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
                             {/* Coverage by City Tier */}
                             <div className="education-table-card">
                                 <h4 className="education-table-title">🏙️ Recommended Coverage by City</h4>
-                                <table className="education-styled-table compact-table">
-                                    <thead>
-                                        <tr>
-                                            <th>City Tier</th>
-                                            <th>Minimum</th>
-                                            <th>Recommended</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {coverageRecommendations.map((rec, index) => (
-                                            <tr key={index} className={index % 2 === 0 ? 'row-even' : ''}>
-                                                <td className="course-name-cell">{rec.tier}</td>
-                                                <td>{formatCurrency(rec.minCover)}</td>
-                                                <td className="amount-cell">{formatCurrency(rec.recommended)}</td>
+                                <div className="table-scroll-wrapper">
+                                    <table className="education-styled-table compact-table">
+                                        <thead>
+                                            <tr>
+                                                <th>City Tier</th>
+                                                <th>Minimum</th>
+                                                <th>Recommended</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {coverageRecommendations.map((rec, index) => (
+                                                <tr key={index} className={index % 2 === 0 ? 'row-even' : ''}>
+                                                    <td className="course-name-cell">{rec.tier}</td>
+                                                    <td>{formatCurrency(rec.minCover)}</td>
+                                                    <td className="amount-cell">{formatCurrency(rec.recommended)}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
                             {/* Key Takeaway */}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiShield, FiDollarSign, FiAlertTriangle, FiCheckCircle, FiInfo } from 'react-icons/fi';
+import { FiShield, FiDollarSign, FiAlertTriangle, FiCheckCircle, FiInfo, FiHome, FiTrendingUp } from 'react-icons/fi';
 import './CalculatorPages.css';
 
 const formatCurrency = (num) => {
@@ -161,6 +161,64 @@ const LifeInsurancePage = () => {
                                     <p>Fill in the form and click "Calculate HLV" to see your results here.</p>
                                 </div>
                             )}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ========== WHY LIFE INSURANCE IS IMPORTANT ========== */}
+            <section className="education-cost-data">
+                <div className="container">
+                    <div className="health-content-grid">
+                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                            <div className="section-header" style={{ textAlign: 'left', marginBottom: '30px' }} data-aos="fade-right">
+                                <span className="section-badge">Why It Matters</span>
+                                <h2>Why Life Insurance is <span className="text-primary">Important</span></h2>
+                                <p className="section-subtitle" style={{ margin: 0 }}>
+                                    Life insurance acts as a fundamental safety net for your family. It ensures that your
+                                    financial goals are met even in your absence.
+                                </p>
+                            </div>
+                            <div className="topic-card" style={{ marginBottom: '20px', borderLeft: '4px solid var(--primary)' }} data-aos="fade-right" data-aos-delay="100">
+                                <div>
+                                    <h4>Peace of Mind</h4>
+                                    <p style={{ margin: 0 }}>Knowing your family is financially secure brings immense peace of mind, allowing you to focus on living your life to the fullest.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="health-topics" data-aos="fade-left" data-aos-delay="100">
+                            <div className="topic-card">
+                                <div className="topic-card-icon"><FiShield /></div>
+                                <div>
+                                    <h4>Financial Protection</h4>
+                                    <p>Replaces your income to help your family maintain their standard of living and pay for daily expenses in your absence.</p>
+                                </div>
+                            </div>
+
+                            <div className="topic-card">
+                                <div className="topic-card-icon"><FiHome /></div>
+                                <div>
+                                    <h4>Debt & Liability Cover</h4>
+                                    <p>Prevents the burden of outstanding home loans, car loans, and other debts from falling on your family members.</p>
+                                </div>
+                            </div>
+
+                            <div className="topic-card">
+                                <div className="topic-card-icon"><FiDollarSign /></div>
+                                <div>
+                                    <h4>Child's Future Security</h4>
+                                    <p>Ensures that your children's higher education and marriage goals are achieved as planned, regardless of uncertainties.</p>
+                                </div>
+                            </div>
+
+                            <div className="topic-card">
+                                <div className="topic-card-icon"><FiTrendingUp /></div>
+                                <div>
+                                    <h4>Long-term Wealth Creation</h4>
+                                    <p>Certain life insurance policies (like ULIPs or Endowment plans) help you build a corpus over time while providing cover.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -327,6 +327,48 @@
     font-size: 0.9rem;
 }
 
+/* Generic Topic Cards (reused from health-topics) */
+.topic-card {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-100);
+    transition: all var(--transition-base);
+}
+
+.topic-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(5px);
+    border-color: rgba(255, 107, 0, 0.15);
+}
+
+.topic-card-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: var(--radius-md);
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.topic-card h4 {
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+
+.topic-card p {
+    font-size: 0.88rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+}
+
 /* Education Chart */
 .chart-container {
     background: var(--white);
