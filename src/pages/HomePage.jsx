@@ -143,6 +143,57 @@ const HomePage = () => {
                 </div>
             </section>
 
+            {/* ========== FINANCIAL PLANNING GUIDE SECTION ========== */}
+            <section className="financial-planning-guide">
+                <div className="container">
+                    <div className="section-header" data-aos="fade-up">
+                        <span className="section-badge">Practical Guide</span>
+                        <h2 className="section-title">Smart Financial <span>Planning Example</span></h2>
+                        <p className="section-subtitle">
+                            A comprehensive financial plan for a young family with monthly income of ₹60,000
+                        </p>
+                    </div>
+
+                    <div className="financial-guide-content" data-aos="fade-up" data-aos-delay="200">
+                        <img
+                            src="/images/smart-financial-plan.jpg"
+                            alt="Smart Financial Plan for Young Family - Monthly Income ₹60,000"
+                            className="financial-plan-image"
+                        />
+                        <div className="financial-guide-highlights">
+                            <div className="financial-highlight-item">
+                                <div className="financial-highlight-icon">🛡️</div>
+                                <div>
+                                    <h4>Protection First</h4>
+                                    <p>Term insurance (₹1 Cr) + Health insurance (5-10 lakhs)</p>
+                                </div>
+                            </div>
+                            <div className="financial-highlight-item">
+                                <div className="financial-highlight-icon">🎓</div>
+                                <div>
+                                    <h4>Child's Future</h4>
+                                    <p>₹3,000/month SIP for higher education in 15 years</p>
+                                </div>
+                            </div>
+                            <div className="financial-highlight-item">
+                                <div className="financial-highlight-icon">💰</div>
+                                <div>
+                                    <h4>Emergency Fund</h4>
+                                    <p>₹2 lakhs in liquid funds for job loss or medical crisis</p>
+                                </div>
+                            </div>
+                            <div className="financial-highlight-item">
+                                <div className="financial-highlight-icon">🏡</div>
+                                <div>
+                                    <h4>Short-Term Goals</h4>
+                                    <p>Save ₹4,000-5,000/month for home/vehicle downpayment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* ========== ABOUT SECTION ========== */}
             <section className="about" id="about">
                 <div className="container">

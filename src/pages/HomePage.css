@@ -299,6 +299,81 @@
     line-height: 1.7;
 }
 
+/* =========== Financial Planning Guide Section =========== */
+.financial-planning-guide {
+    padding: 100px 0;
+    background: var(--off-white);
+}
+
+.financial-guide-content {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.financial-plan-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--gray-100);
+    transition: all var(--transition-base);
+}
+
+.financial-plan-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.financial-guide-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.financial-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-100);
+    transition: all var(--transition-base);
+}
+
+.financial-highlight-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(5px);
+    border-color: rgba(255, 107, 0, 0.2);
+}
+
+.financial-highlight-icon {
+    font-size: 2rem;
+    min-width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    border-radius: var(--radius-md);
+}
+
+.financial-highlight-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    color: var(--dark);
+}
+
+.financial-highlight-item p {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    margin: 0;
+    line-height: 1.6;
+}
+
 /* =========== About Section =========== */
 .about {
     padding: 100px 0;
@@ -590,5 +665,14 @@
 
     .about-stats {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .financial-guide-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .financial-plan-image {
+        max-width: 100%;
     }
 }
