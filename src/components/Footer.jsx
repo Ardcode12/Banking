@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiShield, FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FiShield } from 'react-icons/fi';
 import './Footer.css';
 
 const Footer = () => {
@@ -46,46 +45,16 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div className="footer-col">
-                        <h4 className="footer-title">Contact Us</h4>
-                        <div className="footer-contact-item">
-                            <div className="footer-contact-icon"><FiMail /></div>
-                            <div>
-                                <div style={{ color: 'rgba(255,255,255,0.8)' }}>Email</div>
-                                support@finshield.in
-                            </div>
-                        </div>
-                        <div className="footer-contact-item">
-                            <div className="footer-contact-icon"><FiPhone /></div>
-                            <div>
-                                <div style={{ color: 'rgba(255,255,255,0.8)' }}>Phone</div>
-                                +91 98765 43210
-                            </div>
-                        </div>
-                        <div className="footer-contact-item">
-                            <div className="footer-contact-icon"><FaWhatsapp /></div>
-                            <div>
-                                <div style={{ color: 'rgba(255,255,255,0.8)' }}>WhatsApp</div>
-                                +91 98765 43210
-                            </div>
-                        </div>
-                        <div className="footer-contact-item">
-                            <div className="footer-contact-icon"><FiMapPin /></div>
-                            <div>
-                                <div style={{ color: 'rgba(255,255,255,0.8)' }}>Location</div>
-                                India
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
 
-                
+
 
                 <div className="footer-bottom">
                     <p className="footer-bottom-text">
                         © {new Date().getFullYear()} FinShield. All rights reserved.
                     </p>
-                    
+
                 </div>
             </div>
         </footer>
