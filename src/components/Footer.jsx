@@ -79,19 +79,13 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="footer-disclaimer">
-                    <strong>Disclaimer:</strong> This tool provides estimates for
-                    educational purposes only. It does not constitute financial advice,
-                    insurance advice, or any form of professional consultation.
-                </div>
+                
 
                 <div className="footer-bottom">
                     <p className="footer-bottom-text">
                         © {new Date().getFullYear()} FinShield. All rights reserved.
                     </p>
-                    <p className="footer-bottom-text">
-                        Made with ❤️ for Indian Families | <Link to="/legal" style={{ color: 'var(--primary-light)' }}>Legal & Disclaimer</Link>
-                    </p>
+                    
                 </div>
             </div>
         </footer>
