@@ -1,25 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
     FiShield, FiHeart,
-    FiBookOpen, FiMail, FiPhone, FiCheckCircle,
-    FiUsers, FiAward, FiEye, FiSend
+    FiBookOpen, FiCheckCircle,
+    FiUsers, FiAward, FiEye
 } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
 import './HomePage.css';
 
 const HomePage = () => {
-    const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
-    const [contactSent, setContactSent] = useState(false);
-
-    const handleContactSubmit = (e) => {
-        e.preventDefault();
-        setContactSent(true);
-        setTimeout(() => {
-            setContactSent(false);
-            setContactForm({ name: '', email: '', message: '' });
-        }, 4000);
-    };
 
     return (
         <>
@@ -263,7 +251,7 @@ const HomePage = () => {
             </section>
 
 
-            
+
         </>
     );
 };
