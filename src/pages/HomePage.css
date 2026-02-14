@@ -331,23 +331,29 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    justify-content: space-between;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--gray-100);
+    box-shadow: var(--shadow-md);
 }
 
 .financial-highlight-item {
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    padding: 24px;
+    padding: 28px 24px;
     background: var(--white);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
     transition: all var(--transition-base);
+    flex: 1;
+}
+
+.financial-highlight-item:last-child {
+    border-bottom: none;
 }
 
 .financial-highlight-item:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateX(5px);
+    background: var(--off-white);
     border-color: rgba(255, 107, 0, 0.2);
 }
 
