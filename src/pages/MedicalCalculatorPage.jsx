@@ -7,7 +7,7 @@ import {
 } from 'chart.js';
 import {
     FiHeart, FiTrendingUp, FiDollarSign,
-    FiAlertTriangle, FiCheckCircle, FiInfo, FiActivity
+    FiAlertTriangle, FiCheckCircle, FiInfo
 } from 'react-icons/fi';
 import './CalculatorPages.css';
 

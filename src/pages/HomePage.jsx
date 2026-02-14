@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-    FiShield, FiTrendingUp, FiHeart,
+    FiShield, FiHeart,
     FiBookOpen, FiMail, FiPhone, FiCheckCircle,
     FiUsers, FiAward, FiEye, FiSend
 } from 'react-icons/fi';
